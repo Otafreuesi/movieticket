@@ -1,0 +1,143 @@
+
+*{
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, black, rgb(112, 107, 107));
+    background-size: 200% 200%;
+  }
+  
+  .container{
+    max-width:1170px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:1em;
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  ul{
+    list-style: none;
+    padding:0;
+  }
+  
+  .brand{
+    text-align: center;
+    color: rgb(233, 229, 229);
+  }
+  
+  .brand span{
+    color:#fff;
+  }
+  
+  .wrapper{
+    box-shadow: 0 0 20px 0 rgba(126, 94, 94, 0.7); 
+  }
+  
+  .wrapper > *{
+    padding: 1em;
+  }
+  
+  .company-info{
+    background:#493b3b4b;
+  }
+  
+  .company-info h3, .company-info ul{
+    text-align: center;
+    margin:0 0 1rem 0;
+  }
+  
+  .contact{
+    background:#ffffff9d;
+  }
+  
+  /* FORM STYLES */
+  .contact form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+  }
+  
+  .contact form label{
+    display:block;
+  }
+  
+  .contact form p{
+    margin:0;
+  }
+  
+  .contact form .full{
+    grid-column: 1 / 3;
+  }
+  
+  .contact form button, .contact form input, .contact form textarea{
+    width:100%;
+    padding:1em;
+    border:1px solid #c9e6ff;
+  }
+  
+  .contact form button{
+    background:#616366;
+    border:0;
+    text-transform: uppercase;
+  }
+  
+  .contact form button:hover,.contact form button:focus{
+    background:#cbcdcf1e;
+    color:#fff;
+    outline:0;
+    transition: background-color 2s ease-out;
+  }
+  
+  .alert{
+    text-align: center;
+    padding:10px;
+    background:#131613;
+    color:#fff;
+    margin-bottom:10px;
+    display:none;
+  }
+  .alert {
+    display: none;
+    text-align: center;
+    padding:10px;
+    background:#323332;
+    color:#fff;
+    margin-bottom:10px;
+    font-size: 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: showDelayedAlert 0s ease 4s forwards; /* Delayed animation */
+}
+
+/* Keyframes for delayed animation */
+@keyframes showDelayedAlert {
+    to {
+        display: block;
+    }
+}
+
+
+  
+  /* LARGE SCREENS */
+  @media(min-width:700px){
+    .wrapper{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  
+    .wrapper > *{
+      padding:2em;
+    }
+  
+    .company-info h3, .company-info ul, .brand{
+      text-align: left;
+    }
+  }

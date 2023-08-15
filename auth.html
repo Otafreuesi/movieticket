@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+	<!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylelogin.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Registration page</title>
+   
+</head>
+<body style="background-color: black;">
+
+<div class="navbar navbar-default">
+<div class="navbar-header">
+  <a class="navbar-brand">Registration for movie ticket booking</a>
+  
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="container">	
+  <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
+  <div class="row">
+
+	<div class="col-sm-4">
+		<div class="form-group">
+	      <label for="email"><b class="des">Registration</b><br>Email</label>
+		  <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+		</div>
+		
+		<div class="form-group">
+	      <label for="password" >Password</label>
+          <b class="tx">Register</b>
+		  <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
+		</div>
+		<button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
+	</div><!-- end col -->
+	</form>
+	<div class="col-sm-4">
+		
+	</div>
+	<form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data" >
+	<div class="col-sm-4">
+		<div class="form-group">
+	      <label for="email"><b class="des">Login</b><br>Email</label>
+		  <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
+		</div>
+		
+		<div class="form-group">
+	      <label for="password">Password</label>
+		  <input type="password" name="login_password" id="login_password" class="form-control"  placeholder="Enter your password">
+		</div>
+		<button type="button" id="login" name="login" class="btn btn-success">Login</button>
+	</div><!-- end col -->
+	
+  </div><!--  end row -->		
+  </form>
+</div>
+<br>
+
+</body>
+<script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAVvDBu2giCQkH9q17iNj6MM8t1Wj-HGfA",
+      authDomain: "shinerweb-auth-c391a.firebaseapp.com",
+      projectId: "shinerweb-auth-c391a",
+      storageBucket: "shinerweb-auth-c391a.appspot.com",
+      messagingSenderId: "572108898763",
+      appId: "1:572108898763:web:6881b23a52ac7c5a25f64e"
+    };
+    
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database=getDatabase(app);
+	  const auth = getAuth();
+	  console.log(app);
+
+	  
+
+	  //----- New Registration code start	  
+	  document.getElementById("register").addEventListener("click", function() {
+		  var email =  document.getElementById("email").value;
+		  var password = document.getElementById("password").value;
+		  //For new registration
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+            set(ref(database, 'users/' + user.uid),{
+                email:email
+            })
+
+
+		    alert("Registration successful!");
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert(error);
+		  });		  		  
+	  });
+	  //----- End
+
+	  //----- Login code start	  
+	  document.getElementById("login").addEventListener("click", function() {
+		  var email =  document.getElementById("login_email").value;
+		  var password = document.getElementById("login_password").value;
+
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert(user.email+" Login successful");
+            window.location.href = 'index.html';
+		    document.getElementById('logout').style.display = 'block';
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    console.log(errorMessage);
+		    alert(errorMessage);
+		  });		  		  
+	  });
+	  //----- End
+
+	  //----- Logout code start	  
+	  document.getElementById("logout").addEventListener("click", function() {
+		  signOut(auth).then(() => {
+			  // Sign-out successful.
+			  console.log('Sign-out successful.');
+			  alert('Sign-out successful.');
+			  document.getElementById('logout').style.display = 'none';
+			}).catch((error) => {
+			  // An error happened.
+			  console.log('An error happened.');
+			});		  		  
+	  });
+	
+
+	</script>
+</html>

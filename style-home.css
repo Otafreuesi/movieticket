@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set the body height to full viewport height */
+    background: linear-gradient(to bottom, #000000, #5f2121); /* Black to Red gradient */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixed background so it doesn't scroll with the content */
+    background-size: cover;
+    
+}
+
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link{
+    
+    font-weight: 500 !important;
+    background-color: #E50914 !important;
+   
+    color:black !important;
+     
+}
+
+.h7{
+    color: aliceblue;
+    font-size: 30px;
+    text-align: center;
+    padding-left: 500px;
+
+
+}
+
+.btn-custom{
+    background-color: #E50914 !important;
+    font-weight: 800 !important;
+    color:black !important;
+     
+}
+
+.btn-collection{
+     
+    max-width: 241px;
+    margin:  2em auto;
+}
+
+.img-card{
+    margin: 5px 0px;
+    transition: .1s;
+}
+.img-card:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+
+.btn-collection-playing{
+     
+    max-width: 110px;
+    margin:  2em auto;
+}
+.submission{
+    font-size: 30px;
+   
+    color: aliceblue;
+    padding-left: 500px;
+}
+.bt{
+    background-color: #E50914;
+    border: 1px solid #E50914;
+    padding: .6em 2em;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+  bottom: 5px;
+  right: 0px;
+    
+}
+.tb{
+    background-color: #E50914;
+    border: 1px solid #E50914;
+    padding: .6em 2em;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+

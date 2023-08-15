@@ -1,0 +1,46 @@
+.bg-custom{
+    background-color: black;
+     
+}
+
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+.btn-custom{
+    background-color: #E50914 !important;
+    font-weight: 800 !important;
+    color:black !important;
+     
+}
+.form-group{
+    color: aliceblue;
+}
+.form-control{
+    background-color: aliceblue;
+}
+.btn btn-success{
+    background-color: #E50914;
+}
+
+.navbar-brand{
+    background-color: aliceblue;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font: bold;
+    
+
+}
+.des{
+    font-size: 40px;
+}
+.navbar-header{
+    background-color: aliceblue;
+}
+.phone{
+    background-color: aliceblue;
+}

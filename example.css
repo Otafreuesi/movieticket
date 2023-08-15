@@ -1,0 +1,87 @@
+
+body, h1, p{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Define the keyframes for the background gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+.container-fluid {
+    background: linear-gradient(45deg, black, red);
+    background-size: 200% 200%;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+/* Add styles for the animated text */
+.animated-text {
+    font-size: 48px;
+    font-family: "Playfair Display";
+    src: url("path/to/playfairdisplay-regular.woff2") format("woff2");
+    font-weight: bold;
+    color: white;
+    opacity: 0.7;
+    animation: fadeInText 2s ease-in-out forwards;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Add transitions for smooth hover effect */
+}
+
+/* Keyframes for text animation */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add hover effect */
+.animated-text:hover {
+    color: #DDA858; /* Change text color on hover */
+    text-shadow: 0 0 5px white; /* Add shadow on hover */
+}
+
+/* Style the buttons with black background and red text */
+.btn-collection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    gap: 40px;
+    color: white;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 40px 60px; /* Increase the padding to increase button size */
+    font-size: 65px; /* Increase the font size to increase button text size */
+    cursor: pointer;
+    size: 70px;
+    
+}
+
+/* Remove default button styles */
+.btn:focus, .btn:hover {
+    outline: none;
+}
+
+/* Additional styling for button hover effect */
+.btn:hover {
+    background-color: white;
+    color: white;
+}
+.btn:not(:hover) {
+    color: white;
+}
